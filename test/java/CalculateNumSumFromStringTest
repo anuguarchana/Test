@@ -1,0 +1,43 @@
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
+public class CalculateNumSumFromStringTest {
+
+    CalculateNumSumFromString calculateNumSumFromString = new CalculateNumSumFromString();
+
+    @Test
+    public void testStringsSumValues() {
+
+        int maxNum1 = calculateNumSumFromString.calculateSum(List.of("dh7js4jf", "or2rjvn2w", "h1n36mfl", "a7e6fw"));
+        int maxNum2 = calculateNumSumFromString.calculateSum(List.of("dh7js5jf", "or2rjvn4w", "h1n37mfl", "a7e8fw"));
+        int maxNum3 = calculateNumSumFromString.calculateSum(List.of("dh7js5jf3df3"));
+        int maxNum4 = calculateNumSumFromString.calculateSum(List.of("dh7js5jf", "or2rjvn4w", "h1n378mfl", "a7e8fw", "a7e8f56", "a7e8dfg", "fg45dgr", "34erdfg", "or2rdn56w", "h13457mfl"));
+        assertEquals(maxNum1, 13);
+        assertEquals(maxNum2, 15);
+        assertEquals(maxNum3, 18);
+        assertEquals(maxNum4, 26);
+    }
+
+    @Test
+    public void testStringArrayLongerShouldThrowException() {
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            calculateNumSumFromString.calculateSum(List.of("dh7js5jf", "or2rjvn4w", "h1n37mfl", "a7e8fw", "a7e8f56", "a7e8dfg", "fg45dgr", "34erdfg", "or2rdn56w", "h13457mfl", "h135rtfl"));
+        });
+        String message = exception.getMessage();
+        assertEquals(message, "Input array size must not exceed 10 elements");
+    }
+
+    @Test
+    public void testStringLengthLongerShouldThrowException() {
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            calculateNumSumFromString.calculateSum(List.of("dh7js5jfedf92"));
+        });
+        String message = exception.getMessage();
+        assertEquals(message, "Input String size must not exceed 12 char");
+
+    }
+}

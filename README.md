@@ -15,5 +15,5 @@ so the output is		13
 
 
 How to execute 
-Just go inside sum.of.num package and run CalculateNumSumFromString class
+Just go CalculateNumSumFromString.java class and run main method
 you will see the output in the console.

@@ -15,5 +15,5 @@ so the output is		13
 
 
 How to execute 
-Just go CalculateNumSumFromString.java class and run main method
+Just go CalculateNumSumFromStringTest.java class and run all the tests (test/java)
 you will see the output in the console.
